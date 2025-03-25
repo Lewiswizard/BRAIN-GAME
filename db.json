@@ -1,0 +1,23 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "userId": "user1",
+      "board": [
+        { "id": 1, "value": "symbol1", "flipped": false },
+        { "id": 2, "value": "symbol2", "flipped": false }
+        
+      ],
+      "matchesFound": 0,
+      "timeRemaining": 60,
+      "createdAt": "2023-03-25T12:00:00"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Lewis",
+      "highScore": 100
+    }
+  ]
+}
