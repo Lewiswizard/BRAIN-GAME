@@ -15,7 +15,7 @@
   ],
   "users": [
     {
-      "id": "1",
+      "id": "user1",
       "name": "Lewis",
       "highScore": 100
     }

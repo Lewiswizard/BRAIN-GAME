@@ -4,21 +4,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click-match Memory Game</title>
     <link  href="css/index.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/snow.css">
+  
   </head>
   <body>
-    <h1>BRAIN-GAME</h1>
-    <div class="main">
-      <div class="stats">
+        
+    <Head>
+      <nav>
+        <div class="navbar">
+        <a href="#" class="active">𝗗𝗮𝘀𝗵𝗯𝗼𝗮𝗿𝗱</a>
+        <a href="#">𝗣𝗹𝗮𝘆</a>
+        <a href="#">𝗟𝗲𝗮𝗱𝗲𝗿𝗕𝗼𝗮𝗿𝗱</a>
+        <a href="#">𝗦𝗲𝘁𝘁𝗶𝗻𝗴𝘀</a>
+        <a href="#">𝗔𝗯𝗼𝘂𝘁</a>
+    </div>
+        
+      </nav>
+    </Head>
+    <div class="banner_section">
+            <div class="snow-container">
+                <div class="snow foreground"></div>
+                <div class="snow foreground layered"></div>
+                <div class="snow middleground"></div>
+                <div class="snow middleground layered"></div>
+                <div class="snow background"></div>
+                <div class="snow background layered"></div>
+            </div>
+    <nav>
+    </nav>
+     <h1 style="font-size: 65px; color: yellow; text-align: left;">BRAIN-GAMEPARK🎮🏛️</h1>
+       <div class="main">
+        <div id="cards-container"></div>
+    <!-- <button id="draw-card">Draw Random Card</button> -->
+        <div class="stats">
         <div id="moves-count"></div>
         <div id="time"></div>
       </div>
+      <div id="theme-toggle">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </div>
+    <h1 style="color: blue; font-size: 46px;">𝗚𝗮𝗺𝗲 𝗼𝗻❗🎖️</h1>
+    <h2 style="color:darkorange;">𝙏𝙝𝙚 𝙖𝙧𝙚𝙣𝙖 𝙞𝙨 𝙮𝙤𝙪𝙧𝙨🎮🎲</h2>
       <div class="game-general"></div>
       <button id="stop" class="finish">QUIT</button>
     </div>
-    <div class="controls-container">
+    
+    <div style="margin-bottom: 180px;" class="controls-container">                 
+     <div style="" class="nav">
+      <h1 >BRAIN-GAMEPARK🎮</h1>
+     </div>
+      <h1 style="color: whitesmoke;  font-size: 60px;">𝗨𝗻𝗹𝗲𝗮𝘀𝗵 𝗬𝗼𝘂𝗿 𝗕𝗿𝗮𝗶𝗻 𝗣𝗼𝘄𝗲𝗿❗</h1> 
+      <h2 style="color:ivory; font-size: 35px;">𝔸 𝕓𝕣𝕒𝕚𝕟-𝕓𝕠𝕠𝕤𝕥𝕚𝕟𝕘 𝕒𝕕𝕧𝕖𝕟𝕥𝕦𝕣𝕖 🦞</h2>    
       <p id="result"></p>
-      <button id="start">START</button>
+      <button id="start" style="font-size: 30px;">𝕊𝕋𝔸ℝ𝕋</button>
+
     </div>
+    <button id="play-pause-music">Play/Pause Music</button>
+    <audio id="background-music" loop>
+       <source src="Music/Peaky Blinders.mp3" type="audio/mpeg">
+       Your browser does not support the audio element.
+    </audio>
+
+    <div class="quote" id="quote">Loading...</div>
+    <div class="author" id="author"></div>
+    <button id="new-quote"></button>
+
+
+
+    <video id="video-background" autoplay muted loop>
+        <source src="assets/anime.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="game-container">
+  <div class="game-info">
+    <div style="margin-bottom: 30px;" class="info-item">
+      <span style="color:blue; font-size: 35px; background-color: black;" class="label">Games:</span>
+      <span style="color: gold; font-size: 25px;" class="value" id="games-count">0</span>
+    </div>
+    <div style="margin-bottom: 30px;" class="info-item">
+      <span style="color: blue; font-size: 35px; background-color: black;" class="label">Matches:</span>
+      <span style="color: gold; font-size: 25px; " class="value" id="matches-count">0</span>
+    </div>
+    <div style="margin-bottom: 30px;" class="info-item">
+      <span style="color: blue; font-size: 35px; background-color: black;" class="label">Attempts:</span>
+      <span style="color: gold; font-size: 25px;" class="value" id="attempts-count">0</span>
+    </div>
+    <div style="margin-bottom: 30px;" class="info-item">
+      <span style="color: blue; font-size: 35px; background-color: black;" class="label">Accuracy:</span>
+      <span style="color: gold; font-size: 25px;" class="value" id="accuracy-value">0.00%</span>
+    </div>
+  </div>
+  <div class="game-board">
+    
+  </div>
+  <div class="game-controls">
+    <button style="background-color: darkcyan;color: yellow;" id="shuffle-button">sʜᴜғғʟᴇ</button>
+  </div>
+</div>
 
     <script src="src/script.js"></script>
   </body>

@@ -26,6 +26,7 @@ const generateRandom = (size = 4) => {
     let tempList = [...pictures];
    
     let cardValues = [];
+    
    
     size = (size * 3) / 2;
    
@@ -110,8 +111,8 @@ const movesCounter = () => {
             winCount += 1;
           
             if (winCount == Math.floor(cardValues.length / 2)) {
-              result.innerHTML = `<h2>You Won</h2>
-            <h4>Moves: ${movesCount}</h4>`;
+              result.innerHTML = `<h2 style="color: #ffffff">𝙈𝙞𝙨𝙨𝙞𝙤𝙣 𝘼𝙘𝙘𝙤𝙢𝙥𝙡𝙞𝙨𝙝𝙚𝙙 🏆🏅</h2>
+            <h4 style="color: #fff">Your Moves: ${movesCount}</h4>`;
               stopGame();
             }
           } else {
@@ -161,3 +162,152 @@ stopButton.addEventListener(
       clearInterval(interval);
     })
   );
+const backgroundMusic = document.getElementById('background-music');
+const playPauseButton = document.getElementById('play-pause-music');
+
+let isPlaying = false;
+
+playPauseButton.addEventListener('click', () => {
+  if (isPlaying) {
+    backgroundMusic.pause();
+    playPauseButton.textContent = 'Play Music';
+  } else {
+    backgroundMusic.play();
+    playPauseButton.textContent = 'Pause Music';
+  }
+  isPlaying = !isPlaying;
+});
+
+startButton.addEventListener('click', () => {
+  backgroundMusic.play();
+  isPlaying = true;
+  playPauseButton.textContent = 'Pause Music';
+});
+
+stopButton.addEventListener('click', () => {
+  backgroundMusic.pause();
+  isPlaying = false;
+  playPauseButton.textContent = 'Play Music';
+});
+
+
+
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = themeToggle.querySelector('.fa-sun');
+const moonIcon = themeToggle.querySelector('.fa-moon');
+const body = document.body;
+
+let isDarkMode = false;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  body.classList.toggle('light-mode');
+  isDarkMode = !isDarkMode;
+  updateThemeToggle();
+});
+
+function updateThemeToggle() {
+  sunIcon.style.display = isDarkMode ? 'none' : 'block';
+  moonIcon.style.display = isDarkMode ? 'block' : 'none';
+}
+
+// Set initial theme
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  body.classList.add('dark-mode');
+  isDarkMode = true;
+  updateThemeToggle();
+} else {
+  body.classList.add('light-mode');
+}
+
+// music API
+// let currentTrackIndex = 0;
+//         let tracks = [];
+
+//         async function fetchRandomMusic() {
+//             const response = await fetch('YOUR_PUBLIC_API_ENDPOINT');
+//             const data = await response.json();
+//             tracks = data.tracks; // Adjust based on the API response structure
+//             loadTrack(currentTrackIndex);
+//         }
+
+//         function loadTrack(index) {
+//             const audio = document.getElementById('audio');
+//             audio.src = tracks[index].preview_url; // Adjust based on the API response
+//         }
+
+//         document.getElementById('play').addEventListener('click', () => {
+//             document.getElementById('audio').play();
+//         });
+
+//         document.getElementById('pause').addEventListener('click', () => {
+//             document.getElementById('audio').pause();
+//         });
+
+//         document.getElementById('next').addEventListener('click', () => {
+//             currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+//             loadTrack(currentTrackIndex);
+//         });
+
+//         document.getElementById('prev').addEventListener('click', () => {
+//             currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+//             loadTrack(currentTrackIndex);
+//         });
+
+//         // Fetch random music on load
+//         fetchRandomMusic();
+
+async function fetchQuote() {
+            const response = await fetch('https://api.quotable.io/random');
+            const data = await response.json();
+            document.getElementById('quote').innerText = `"${data.content}"`;
+            document.getElementById('author').innerText = `— ${data.author}`;
+        }
+
+        document.getElementById('new-quote').addEventListener('click', fetchQuote);
+
+        // Fetch the first quote on load
+fetchQuote();
+        
+
+
+  async function drawCard() {
+            const response = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
+            const data = await response.json();
+            const card = data.cards[0];
+            displayCard(card);
+        }
+
+        function displayCard(card) {
+            const cardsContainer = document.getElementById('cards-container');
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            cardDiv.style.backgroundImage = `url(${card.image})`;
+            cardDiv.innerText = `${card.value} of ${card.suit}`;
+            cardsContainer.appendChild(cardDiv);
+        }
+
+document.getElementById('draw-card').addEventListener('click', drawCard);
+        
+
+
+async function drawCard() {
+    const response = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
+    const data = await response.json();
+    const card = data.cards[0];
+    displayCard(card);
+}
+
+function displayCard(card) {
+    const cardsContainer = document.getElementById('cards-container');
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
+    cardDiv.style.backgroundImage = `url(${card.image})`;
+    cardDiv.innerText = `${card.value} of ${card.suit}`;
+    cardsContainer.appendChild(cardDiv);
+}
+
+document.getElementById('draw-card').addEventListener('click', drawCard);
+
+
+
